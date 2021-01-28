@@ -13,3 +13,9 @@ jobs:
         run: |
           cpanm -v Alien::Build
           cpanm -v --installdeps .
+      - name: install module
+        run: |
+          perl Makefile.PL
+          make
+          make test
+          make install
