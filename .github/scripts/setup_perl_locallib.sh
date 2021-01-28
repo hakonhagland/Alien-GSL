@@ -5,7 +5,7 @@ cd $tempdir
 wget https://cpan.metacpan.org/authors/id/H/HA/HAARG/local-lib-2.000024.tar.gz
 tar zxvf local-lib-2.000024.tar.gz
 cd local-lib-2.000024
-TOP=$GITHUB_WORKFLOW
+TOP=$GITHUB_WORKSPACE
 if [[ $GITHUB_WORKFLOW == *"windows"* ]] ; then
     TOP=$(perl -pE 's{\\}{/}g') <<< "$TOP"
 fi
