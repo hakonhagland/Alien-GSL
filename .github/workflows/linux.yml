@@ -10,4 +10,6 @@ jobs:
       - name: install cpanm
         run: cpan App::cpanminus
       - name: install dependencies
-        run: cpanm -v --installdeps .
+        run: |
+          cpanm -v Alien::Build
+          cpanm -v --installdeps .
