@@ -9,3 +9,5 @@ jobs:
         run: .github/scripts/setup_perl_locallib.sh
       - name: install cpanm
         run: cpan -v App::cpanminus
+      - name: install dependencies
+        run: cpanm --installdeps .
