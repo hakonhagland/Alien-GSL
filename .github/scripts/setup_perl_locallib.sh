@@ -8,7 +8,7 @@ PERL_LOCAL_LIB_ROOT=$GITHUB_WORKSPACE/perl5
 perl Makefile.PL --bootstrap=$PERL_LOCAL_LIB_ROOT
 make
 make test
-#cpan -Mlocal::lib=$PERL_LOCAL_LIB_ROOT
+##cpan -Mlocal::lib=$PERL_LOCAL_LIB_ROOT
 echo "PERL_LOCAL_LIB_ROOT=$PERL_LOCAL_LIB_ROOT" >> $GITHUB_ENV
 echo "PERL5LIB=$PERL_LOCAL_LIB_ROOT/lib/perl5" >> $GITHUB_ENV
 echo "PERL_MB_OPT=--install_base \"$PERL_LOCAL_LIB_ROOT/\"" >> $GITHUB_ENV
