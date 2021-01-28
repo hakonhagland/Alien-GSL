@@ -1,21 +1,17 @@
-name: linux-install
+name: macos-install
 on: [push, pull_request]
 jobs:
   build-dist:
     runs-on: macos-10.15
     steps:
       - uses: actions/checkout@v2
+      - name: perl info
+        run: perl --version
       - name: setup perl locallib
         run: .github/scripts/setup_perl_locallib.sh
       - name: install cpanm
         run: cpan App::cpanminus
       - name: install dependencies
-        run: |
-          cpanm -v Alien::Build
-          cpanm -v --installdeps .
+        run: .github/scripts/install_dependencies.sh
       - name: install module
-        run: |
-          perl Makefile.PL
-          make
-          make test
-          make install
+        run: .github/scripts/install_module.sh

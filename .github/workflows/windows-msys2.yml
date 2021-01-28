@@ -1,9 +1,22 @@
-name: linux-install
+name: windows-msys2
 on: [push, pull_request]
 jobs:
   build-dist:
-    runs-on: ubuntu-20.04
+    runs-on: windows-2019
+    defaults:
+      run:
+        shell: msys2 {0}
+    env:
+      MSYS: winsymlinks:nativestrict
     steps:
+      - uses: msys2/setup-msys2@v2
+        with:
+          update: true
+          release: true
+          msystem: MSYS
+          path-type: minimal
+          install: >-
+            base-devel gcc cmake git libcrypt-devel libreadline tree
       - uses: actions/checkout@v2
       - name: perl info
         run: perl --version
