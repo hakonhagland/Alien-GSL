@@ -2,7 +2,8 @@
 
 echo $PATH
 if [[ $GITHUB_WORKFLOW == *"windows"* ]] ; then
-    ls -l D:/a/Alien-GSL/Alien-GSL/perl5/bin
+    #ls -l D:/a/Alien-GSL/Alien-GSL/perl5/bin
+    ls -l /d/Alien-GSL/Alien-GSL/perl5/bin
 fi
 cpanm -v Alien::Build
 cpanm -v --installdeps .
