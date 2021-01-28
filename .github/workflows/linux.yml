@@ -8,6 +8,6 @@ jobs:
       - name: setup perl locallib
         run: .github/scripts/setup_perl_locallib.sh
       - name: install cpanm
-        run: cpan -v App::cpanminus
+        run: cpan App::cpanminus
       - name: install dependencies
         run: cpanm --installdeps .
