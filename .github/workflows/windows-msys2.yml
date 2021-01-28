@@ -19,7 +19,9 @@ jobs:
             base-devel gcc cmake git libcrypt-devel libreadline tree
       - uses: actions/checkout@v2
       - name: perl info
-        run: perl --version
+        run: |
+          echo $PWD
+          perl --version
       - name: setup perl locallib
         run: .github/scripts/setup_perl_locallib.sh
       - name: install cpanm

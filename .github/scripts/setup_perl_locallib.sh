@@ -5,7 +5,11 @@ cd $tempdir
 wget https://cpan.metacpan.org/authors/id/H/HA/HAARG/local-lib-2.000024.tar.gz
 tar zxvf local-lib-2.000024.tar.gz
 cd local-lib-2.000024
-PERL_LOCAL_LIB_ROOT=$GITHUB_WORKSPACE/perl5
+TOP=$GITHUB_WORKFLOW
+if [[ $GITHUB_WORKFLOW == *"windows"* ]] ; then
+    TOP=$(perl -pE 's{\\}{/}g') <<< "$TOP"
+fi
+PERL_LOCAL_LIB_ROOT=$TOP/perl5
 perl Makefile.PL --bootstrap=$PERL_LOCAL_LIB_ROOT
 make
 make test
