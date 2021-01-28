@@ -6,8 +6,11 @@ wget https://cpan.metacpan.org/authors/id/H/HA/HAARG/local-lib-2.000024.tar.gz
 tar zxvf local-lib-2.000024.tar.gz
 cd local-lib-2.000024
 TOP=$GITHUB_WORKSPACE
+echo "TOP=$TOP"
+echo "GITHUB_WORKFLOW=$GITHUB_WORKFLOW"
 if [[ $GITHUB_WORKFLOW == *"windows"* ]] ; then
     TOP=$(perl -pE 's{\\}{/}g') <<< "$TOP"
+    echo "TOP=$TOP"
 fi
 PERL_LOCAL_LIB_ROOT=$TOP/perl5
 perl Makefile.PL --bootstrap=$PERL_LOCAL_LIB_ROOT
