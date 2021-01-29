@@ -48,8 +48,6 @@ my %FallbackPrereqs = (
   "Test::More" => 0
 );
 
-$DB::single=1;
-
 
 # BEGIN code inserted by Dist::Zilla::Plugin::AlienBuild
 use Alien::Build::MM;
