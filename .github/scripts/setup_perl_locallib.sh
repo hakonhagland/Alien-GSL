@@ -1,7 +1,7 @@
 #! /bin/bash
 
-TOP=$GITHUB_WORKSPACE
-#TOP=$HOME
+#TOP=$GITHUB_WORKSPACE
+TOP=$HOME
 if [[ $GITHUB_WORKFLOW == *"windows"* ]] ; then
     TOP=$(cygpath "$TOP")
 fi
