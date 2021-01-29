@@ -7,7 +7,7 @@ tar zxvf local-lib-2.000024.tar.gz
 cd local-lib-2.000024
 TOP=$GITHUB_WORKSPACE
 if [[ $GITHUB_WORKFLOW == *"windows"* ]] ; then
-    TOP=$(perl -pE 's{\\}{/}g' <<<"$TOP")
+    TOP=$(cygpath "$TOP")
 fi
 PERL_LOCAL_LIB_ROOT=$TOP/perl5
 perl Makefile.PL --bootstrap=$PERL_LOCAL_LIB_ROOT
