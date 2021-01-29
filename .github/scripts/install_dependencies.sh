@@ -11,6 +11,6 @@ fi
 # - https://github.com/PerlAlien/Alien-Build/pull/247
 # - https://github.com/PerlAlien/Alien-Build/pull/246
 # - https://github.com/PerlAlien/Alien-Build/pull/245
-# So we will install without testing until the above pull request has been merged.
+# So we will install without testing until the above pull requests has been merged.
 $CPANM -n Alien::Build
 $CPANM -v --installdeps .

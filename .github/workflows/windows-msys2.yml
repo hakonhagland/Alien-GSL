@@ -28,9 +28,7 @@ jobs:
       - name: setup perl locallib
         run: .github/scripts/setup_perl_locallib.sh
       - name: install cpanm
-        run: |
-          export PATH PERL_LOCAL_LIB_ROOT PERL_MB_OPT PERL_MM_OPT PERL5LIB
-          cpan App::cpanminus
+        run: cpan App::cpanminus
       - name: install dependencies
         run: .github/scripts/install_dependencies.sh
       - name: install module
