@@ -1,18 +1,11 @@
 #! /bin/bash
 
-#TOP=$GITHUB_WORKSPACE
-TOP=$HOME
+TOP=$GITHUB_WORKSPACE
+#TOP=$HOME
 if [[ $GITHUB_WORKFLOW == *"windows"* ]] ; then
     TOP=$(cygpath "$TOP")
 fi
 PERL_LOCAL_LIB_ROOT="$TOP/perl5"
-mkdir -p "$PERL_LOCAL_LIB_ROOT"
-echo "Permissions HOME:"
-ls -l $HOME
-echo "Permissions PERL_LOCAL_LIB_ROOT:"
-ls -l $PERL_LOCAL_LIB_ROOT
-echo "Permissions bin:"
-ls -ld $PERL_LOCAL_LIB_ROOT/bin
 
 >>"$GITHUB_ENV" echo "PERL_LOCAL_LIB_ROOT=$PERL_LOCAL_LIB_ROOT"
 >>"$GITHUB_ENV" echo "PERL5LIB=$PERL_LOCAL_LIB_ROOT/lib/perl5"
