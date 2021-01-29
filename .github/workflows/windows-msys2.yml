@@ -28,7 +28,12 @@ jobs:
       - name: setup perl locallib
         run: .github/scripts/setup_perl_locallib.sh
       - name: install cpanm
-        run: cpan App::cpanminus
+        run: |
+          cpan App::cpanminus
+          echo "Content of bin directory:"
+          ls -l $PERL_LOCAL_LIB_ROOT/bin
+          echo "which cpanm"
+          which cpanm
       - name: install dependencies
         run: .github/scripts/install_dependencies.sh
       - name: install module
